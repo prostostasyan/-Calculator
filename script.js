@@ -11,7 +11,7 @@ let smallFont = false;
 let equalOn = false;
 
 function getResult(flagSign, bufer, result) {
-    if (flagSign === '+') return result + bufer;
+    if (flagSign === '+') return +result + +bufer;
     if (flagSign === '-') return result - bufer;
     if (flagSign === '*') return result * bufer;
     if (flagSign === '/') return result / bufer;
@@ -77,7 +77,7 @@ device.onclick = e => {
                 isResult = true;
                 selectSign(e);
             }
-            if (!flagNewItem && !end) { 
+            if (!flagNewItem && !end) {
                 selectSign(e);
                 flagNewItem = true;
             }
@@ -111,6 +111,7 @@ device.onclick = e => {
         if (e.target.id === 'C') {
             if (C.innerHTML === 'CE') {
                 text.innerHTML = "0";
+                end=true;
                 C.innerHTML = 'C';
                 display.classList.remove('smallFont');
                 smallFont = false;
